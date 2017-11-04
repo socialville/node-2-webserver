@@ -31,9 +31,9 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use((req, res, next) => {
-    res.render('maintenance.hbs');
-});
+// app.use((req, res, next) => {
+//     res.render('maintenance.hbs');
+// });
 
 //register a helper
 //needs two parameters
@@ -76,8 +76,16 @@ app.get('/about', (req, res) => {
 
     //render a template you might have setup
     res.render('about.hbs', {
-        pageTitle: 'About page',
+        pageTitle: 'About page'
         //currentYear: new Date().getFullYear()
+    });
+});
+
+//create a projects handler
+app.get('/projects', (req, res) => {
+    res.render('projects.hbs', {
+        pageTitle: 'Projects page',
+        welcomeMessage: 'Welcome to my projects ' + new Date().getFullYear()
     });
 });
 
